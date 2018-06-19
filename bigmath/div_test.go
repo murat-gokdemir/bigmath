@@ -11,19 +11,23 @@ import (
 
 func TestIntDivision(t *testing.T) {
 	//TEST 1
+	fname := "testdoc.txt"
+	inp, err := ioutil.ReadFile(fname)
+	if err != nil {
+		t.Error(err)
+	}
+
 	eV := 3
-	if r := IntDivRemain("testdoc.txt", 5); r != eV {
+	if r, _ := IntDivRemain2(string(inp), 5); r != eV {
 		t.Errorf("remain expected %d, but found: %d", eV, r)
 	}
 
-}
-
-func TestIntDivisionFails(t *testing.T) {
-	//TEST 1
-
-	if r := IntDivRemain("testFail.txt", 5); r != eV {
+	//TEST 2
+	eV = 1
+	if r, _ := IntDivRemain2("6", 5); r != eV {
 		t.Errorf("remain expected %d, but found: %d", eV, r)
 	}
+
 }
 
 func Test01(t *testing.T) {

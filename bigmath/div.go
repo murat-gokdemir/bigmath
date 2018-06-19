@@ -1,21 +1,17 @@
 package bigmath
 
-import (
-	"io/ioutil"
-)
+import "fmt"
 
-func IntDivRemain(fname string, div int) int {
-	inp, err := ioutil.ReadFile(fname)
+func IntDivRemain2(s string, div int) (int, error) {
+	inp := []byte(s)
+	fmt.Println(inp)
+
 	if err := IsNumber(inp); err != nil {
-		return err
-	}
-
-	if err != nil {
-		panic(err)
+		return 0, err
 	}
 
 	n := 0
-	for i := 0; i < len(inp)-1; i++ {
+	for i := 0; i < len(inp); i++ {
 		n = 10*n + (int(inp[i]) - 48)
 		cnt := 0
 		for j := div; j < n+1; j += div {
@@ -24,7 +20,7 @@ func IntDivRemain(fname string, div int) int {
 		n -= cnt * div
 		// fmt.Println("testdoc i:", i, "xcount:", cnt, "testdoc n:", n)
 	}
-	return n
+	return n, nil
 }
 
 func IsNumber(b []byte) error {
