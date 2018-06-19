@@ -9,26 +9,20 @@ import (
 	"testing"
 )
 
-func Test05(t *testing.T) {
-
-	inp, err := ioutil.ReadFile("testdoc.txt")
-	if err != nil {
-		panic(err)
+func TestIntDivision(t *testing.T) {
+	//TEST 1
+	eV := 3
+	if r := IntDivRemain("testdoc.txt", 5); r != eV {
+		t.Errorf("remain expected %d, but found: %d", eV, r)
 	}
 
-	lastn := uint(inp[len(inp)-2]) - 48 //int() that covered uint() was removed
-	fmt.Println("testdoc lastn :", lastn)
+}
 
-	div := 5
-	n := 0
-	for i := 0; i < len(inp)-1; i++ {
-		n = 10*n + (int(inp[i]) - 48)
-		cnt := 0
-		for j := div; j < n+1; j += div {
-			cnt += 1
-		}
-		n -= cnt * div
-		fmt.Println("testdoc i:", i, "xcount:", cnt, "testdoc n:", n)
+func TestIntDivisionFails(t *testing.T) {
+	//TEST 1
+
+	if r := IntDivRemain("testFail.txt", 5); r != eV {
+		t.Errorf("remain expected %d, but found: %d", eV, r)
 	}
 }
 

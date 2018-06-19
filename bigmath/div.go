@@ -1,12 +1,15 @@
 package bigmath
 
 import (
-	"fmt"
 	"io/ioutil"
 )
 
 func IntDivRemain(fname string, div int) int {
 	inp, err := ioutil.ReadFile(fname)
+	if err := IsNumber(inp); err != nil {
+		return err
+	}
+
 	if err != nil {
 		panic(err)
 	}
@@ -19,7 +22,12 @@ func IntDivRemain(fname string, div int) int {
 			cnt += 1
 		}
 		n -= cnt * div
-		fmt.Println("testdoc i:", i, "xcount:", cnt, "testdoc n:", n)
+		// fmt.Println("testdoc i:", i, "xcount:", cnt, "testdoc n:", n)
 	}
 	return n
+}
+
+func IsNumber(b []byte) error {
+
+	return nil
 }
