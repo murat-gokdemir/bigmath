@@ -13,6 +13,7 @@ func IntDivRemain2(s string, div int) (int, error) {
 	n := 0
 	for i := 0; i < len(inp); i++ {
 		n = 10*n + (int(inp[i]) - 48)
+		fmt.Println(i, ". n:", n)
 		cnt := 0
 		for j := div; j < n+1; j += div {
 			cnt += 1
