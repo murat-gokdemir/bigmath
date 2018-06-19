@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/murat-gokdemir/bigmath/bigmath"
+	"github.com/murat-gokdemir/bigmath"
 
 	"fmt"
 )

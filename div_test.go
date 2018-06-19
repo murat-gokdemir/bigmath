@@ -23,8 +23,8 @@ func TestIntDivision(t *testing.T) {
 	}
 
 	//TEST 2
-	eV = 0
-	if r, _ := IntDivRemain2("6450", 5); r != eV {
+	eV = 1
+	if r, _ := IntDivRemain2("6", 5); r != eV {
 		t.Errorf("remain expected %d, but found: %d", eV, r)
 	}
 
